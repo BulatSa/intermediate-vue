@@ -2,12 +2,22 @@
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
 
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import BaseIcon from './components/BaseIcon.vue'
 
 const route = useRoute()
 
 const isHomePage = computed(() => route.path === '/')
+const customName = ref('IconMountain')
+const customSource = ref('custom');
+const customWidth = ref(20);
+const customHeight = ref(20)
+const propsObject = {
+  source:customSource,
+  name:customName,
+  width:customWidth,
+  height:customHeight,
+}
 </script>
 
 <template>
@@ -18,7 +28,7 @@ const isHomePage = computed(() => route.path === '/')
     >
       <div class="navbar-start">
         <RouterLink to="/" class="btn btn-ghost text-xl font-bold text-primary">
-          <BaseIcon name="IconMountain" source="custom" :width="24" :height="24" />
+          <BaseIcon v-bind="propsObject"  />
           Point of Vue
         </RouterLink>
       </div>
