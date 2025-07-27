@@ -1,15 +1,17 @@
 <template>
-  <h1>helko</h1>
-  <p>{{ firstName }} - {{ lastName }}</p>
-  <BaseTextInput id="base" placeholder="Hello" label="First Name" v-model:first-name="firstName" v-model:last-name="lastName" />
-  <BaseTextarea />
+  <h1>Sandbox page</h1>
+
+  <SlotDemo>
+    <template #default="{ count }">
+      This is my {{ count }}!
+    </template>
+    <template #footer>
+      <p>This is my footer content</p>
+    </template>
+  </SlotDemo>
 </template>
 
 <script setup lang="ts">
-import BaseTextarea from '@/components/BaseTextarea.vue'
-import BaseTextInput from '@/components/BaseTextInput.vue'
-import { ref } from 'vue'
+import SlotDemo from '@/components/SlotDemo.vue'
 
-const firstName = ref('')
-const lastName = ref('')
 </script>
