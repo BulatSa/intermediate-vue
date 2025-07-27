@@ -5,9 +5,7 @@
     <template #default="{ count }">
       This is my {{ count }}!
     </template>
-    <template #footer>
-      <p>This is my footer content</p>
-    </template>
+
   </SlotDemo>
 </template>
 
